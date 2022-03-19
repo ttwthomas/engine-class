@@ -1,7 +1,7 @@
 ## Launch dashboard
 ```python3 -m http.server 8000```
 
-Go to http://localhost:8000/index2.html  
+Go to http://localhost:8000/index.html  
 Accept microphone access  
 Click start and play motor sounds
 

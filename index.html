@@ -1,5 +1,5 @@
 <div><h1>Motor reckognizer 3000+ pro</h1></div>
-<button type="button" onclick="init(); initializeSprectrogram()">Start</button>
+<button type="button" onclick="init(); initialize()">Start</button>
 <br/>
 <canvas width="300" height="300"></canvas>
 
@@ -77,27 +77,28 @@
 
     let tries = 0;
     let motorTimer = 0;
-    function isMotorOn(prediction){ // motor on only after 2 consecutive 98%+ prediction
+    function isMotorOn(prediction){ // motor on only after 2 consecutive 95%+ prediction
         console.log(tries, prediction, motorTimer)
         const consecutive = 1;
         const threshold = 0.95;
-        if (tries >= consecutive ){
-            if (prediction >= threshold ){
-                tries++
-                motorTimer = motorTimer + 0.5
-                document.getElementById("motor-timer").innerHTML = "motor timer: "+motorTimer + "sec";
+        if (prediction >= threshold ){
+            tries++
+            if (tries >= consecutive ){
                 showMotorOn()
-            }else{
-                tries = 0
+                motorTimer = motorTimer + 0.5
             }
         }else{
             showMotorOff()
+            tries = 0
         }
+        document.getElementById("motor-timer").innerHTML = "motor timer: "+motorTimer + "sec";
+        // tries >= consecutive ? showMotorOn() : showMotorOff()
+        // prediction >= 0.98 ? tries++ : tries = 0
     }
 
 
 
-    function initializeSprectrogram() {
+    function initialize() {
         const CVS = document.body.querySelector('canvas');
         const CTX = CVS.getContext('2d');
         const W = CVS.width 
