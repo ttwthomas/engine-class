@@ -5,8 +5,13 @@ Go to http://localhost:8000/index.html
 Accept microphone access  
 Click start and play motor sounds
 
+## To recreate the model
+- go to teachable machine and add 2 class
+- upload the training data corresponding to each class
+- train the model (I used 150 epoch)
+- export the model
 
-# Things to know
+## Things to know
 - there is 3 categories:
     - `background`
     - `motor-on`
@@ -19,3 +24,4 @@ Click start and play motor sounds
 - you can play with `consecutive` to wait X consecutive detection to count motor ON
 - you can play with `threshold` to detect motor on only if model is X% sure 
 - `initializeSprectrogram()` can be safely removed
+
